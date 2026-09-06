@@ -74,7 +74,7 @@ export default function Services() {
       {/* Hero */}
       <section className="relative flex min-h-[40vh] items-center overflow-hidden">
         <Image
-          src="/assets/serv-1.jpg"
+          src="/assets/serv-1-optimized.jpg"
           alt=""
           fill
           priority

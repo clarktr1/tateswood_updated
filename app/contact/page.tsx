@@ -7,7 +7,7 @@ export default function Contact() {
       {/* Hero */}
       <section className="relative flex min-h-[40vh] items-center overflow-hidden">
         <Image
-          src="/assets/tw_building-no-cars.png"
+          src="/assets/tw_building-no-cars-optimized.jpg"
           alt=""
           fill
           priority
@@ -43,7 +43,7 @@ export default function Contact() {
 
             <div className="relative aspect-[4/3] overflow-hidden rounded-lg border-4 border-brand-orange">
               <Image
-                src="/assets/tw_building-no-cars.png"
+                src="/assets/tw_building-no-cars-optimized.jpg"
                 alt="Tateswood Energy Company's office building in Spring, Texas."
                 fill
                 className="object-cover"

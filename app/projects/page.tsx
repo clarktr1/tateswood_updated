@@ -7,7 +7,7 @@ export default function Projects() {
       {/* Hero */}
       <section className="relative flex min-h-[40vh] items-center overflow-hidden">
         <Image
-          src="/assets/header1.jpg"
+          src="/assets/header1-optimized.jpg"
           alt=""
           fill
           priority
