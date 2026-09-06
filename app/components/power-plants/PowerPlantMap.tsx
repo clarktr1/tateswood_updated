@@ -64,7 +64,7 @@ export default function PowerPlantMap({
   return (
     <div
       ref={containerRef}
-      className="relative h-full overflow-hidden rounded-2xl bg-[#eef1f8] shadow-md ring-1 ring-brand-purple/10"
+      className="relative h-full overflow-hidden rounded-2xl bg-[#69D8FF] shadow-md ring-1 ring-brand-purple/10"
       onClick={onClear}
     >
       <ComposableMap

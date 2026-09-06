@@ -34,14 +34,9 @@ export function PlantTypeIcon({
         <svg viewBox="0 0 24 24" width={24} height={24} className={className} aria-hidden="true">
           <path
             fill="currentColor"
-            d="M12 3C8 3 4.5 6.5 4.5 12c0 4.7 3.2 8.4 7.5 9.4 4.3-1 7.5-4.7 7.5-9.4C19.5 6.5 16 3 12 3z"
+            d="M12 2c5 4 5 16 0 20-5-4-5-16 0-20z"
           />
-          <path
-            d="M12 6.5v12.8"
-            stroke="white"
-            strokeWidth={1}
-            fill="none"
-          />
+          <path d="M12 4v16" stroke="white" strokeWidth={1} fill="none" />
         </svg>
       );
   }
@@ -65,7 +60,7 @@ export default function PowerPlantMarker({
   onSelect,
 }: PowerPlantMarkerProps) {
   const isCurrent = plant.status === "current";
-  const radius = isActive ? 9 : 7;
+  const radius = isActive ? 11 : 9;
 
   return (
     <g
@@ -89,7 +84,7 @@ export default function PowerPlantMarker({
         style={{ transition: "r 150ms ease-out" }}
       />
       <g
-        transform="translate(-6, -6) scale(0.5)"
+        transform="translate(-7, -7) scale(0.58)"
         style={{ pointerEvents: "none" }}
       >
         <PlantTypeIcon

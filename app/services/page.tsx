@@ -1,23 +1,20 @@
 import Image from "next/image";
 
 const accentStyles = {
-  purple: {
-    ring: "ring-brand-purple/10",
-    wash: "bg-brand-purple/10",
-    dot: "bg-brand-purple",
-  },
-  orange: {
-    ring: "ring-brand-orange/10",
-    wash: "bg-brand-orange/10",
-    dot: "bg-brand-orange",
-  },
+  purple: "bg-brand-purple",
+  orange: "bg-orange-surface",
+} as const;
+
+const barStyles = {
+  purple: "border-orange-surface",
+  orange: "border-brand-purple",
 } as const;
 
 const serviceCategories = [
   {
     title: "Commercial",
     accent: "purple",
-    image: "/assets/serv1.jpg",
+    image: "/assets/commercial_header.jpg",
     items: [
       "Plant Operator Oversight and Direction",
       "Energy Manager Oversight and Direction",
@@ -33,7 +30,7 @@ const serviceCategories = [
   {
     title: "Finance and Accounting",
     accent: "orange",
-    image: "/assets/finance-illustration.svg",
+    image: "/assets/finance_header.webp",
     items: [
       "Financial Statement Preparation",
       "Accounts Payable Processes",
@@ -47,7 +44,7 @@ const serviceCategories = [
   {
     title: "Due Diligence",
     accent: "purple",
-    image: "/assets/serv3.png",
+    image: "/assets/dil_header.jpg",
     items: [
       "Contract Review and Analysis",
       "Risk Analysis",
@@ -58,7 +55,7 @@ const serviceCategories = [
   {
     title: "Bankruptcy Services",
     accent: "orange",
-    image: "/assets/serv4.png",
+    image: "/assets/bankruptcy_header.webp",
     items: [
       "Custodial Asset Management",
       "Assist with Court Filing Exhibits",
@@ -95,27 +92,32 @@ export default function Services() {
         <div className="absolute inset-x-0 bottom-0 h-16 bg-background [clip-path:polygon(0_100%,100%_0,100%_100%)]" />
       </section>
 
-      {/* Service categories */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="grid gap-8 sm:grid-cols-2">
-          {serviceCategories.map((category) => {
-            const accent = accentStyles[category.accent];
-            return (
+      {/* Service categories: alternating image / color panel rows */}
+      <section>
+        {serviceCategories.map((category, index) => {
+          const panel = accentStyles[category.accent];
+          const bar = barStyles[category.accent];
+          const imageOnLeft = index % 2 === 0;
+          return (
+            <div key={category.title} className="grid md:min-h-[440px] md:grid-cols-2">
               <div
-                key={category.title}
-                className={`overflow-hidden bg-white shadow-md ring-1 ${accent.ring} [clip-path:polygon(0_0,calc(100%-20px)_0,100%_20px,100%_100%,0_100%)]`}
+                className={`relative h-64 md:h-auto ${imageOnLeft ? "md:order-1" : "md:order-2"}`}
               >
-                <div className={`relative aspect-[16/9] w-full ${accent.wash}`}>
-                  <Image
-                    src={category.image}
-                    alt=""
-                    fill
-                    sizes="(min-width: 640px) 50vw, 100vw"
-                    className="object-contain p-8"
-                  />
-                </div>
-                <div className="p-8">
-                  <h2 className="text-2xl font-bold text-brand-purple">
+                <Image
+                  src={category.image}
+                  alt=""
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div
+                className={`flex flex-col justify-center px-8 py-12 sm:px-12 lg:px-16 ${panel} ${
+                  imageOnLeft ? "md:order-2" : "md:order-1"
+                }`}
+              >
+                <div className={`border-l-4 ${bar} pl-6`}>
+                  <h2 className="text-3xl font-bold text-white">
                     {category.title}
                   </h2>
                   <ul className="mt-6 space-y-3">
@@ -123,9 +125,9 @@ export default function Services() {
                       <li key={item} className="flex gap-3">
                         <span
                           aria-hidden="true"
-                          className={`mt-2 h-2 w-2 shrink-0 ${accent.dot}`}
+                          className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white/70"
                         />
-                        <span className="text-base leading-7 text-foreground">
+                        <span className="text-base leading-7 text-white/90 text-xl">
                           {item}
                         </span>
                       </li>
@@ -133,9 +135,9 @@ export default function Services() {
                   </ul>
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </section>
     </main>
   );

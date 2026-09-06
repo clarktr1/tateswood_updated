@@ -14,7 +14,7 @@ export default function PowerPlantList({
   onLeave,
 }: PowerPlantListProps) {
   return (
-    <div className="h-full overflow-y-auto rounded-2xl bg-white p-4 shadow-md ring-1 ring-brand-purple/10">
+    <div className="h-full w-84 overflow-y-auto rounded-2xl bg-white p-4 shadow-md ring-1 ring-brand-purple/10">
       <p className="px-2 pb-2 text-xs font-bold uppercase tracking-wide text-foreground/60">
         Projects
       </p>

@@ -33,21 +33,24 @@ export default function PowerPlantsExplorer() {
 
   return (
     <div className="space-y-10">
-      <div className="hidden gap-6 md:flex">
-        <div className="flex-1">
-          <PowerPlantMap
-            containerRef={mapContainerRef}
-            tooltip={tooltip}
-            onHover={setTooltip}
-            onClear={() => setTooltip(null)}
-          />
-        </div>
-        <div className="w-64 shrink-0">
-          <PowerPlantList
-            activePlantName={tooltip?.plant.name ?? null}
-            onHoverPlant={handleHoverFromList}
-            onLeave={() => setTooltip(null)}
-          />
+      {/* Breaks out of the page's max-w-6xl so the map can be wider than the table below */}
+      <div className="relative left-1/2 w-screen -translate-x-1/2">
+        <div className="mx-auto hidden max-w-[1440px] justify-center gap-6 px-6 md:flex md:min-h-[650px]">
+          <div className="flex-1">
+            <PowerPlantMap
+              containerRef={mapContainerRef}
+              tooltip={tooltip}
+              onHover={setTooltip}
+              onClear={() => setTooltip(null)}
+            />
+          </div>
+          <div className="shrink-0">
+            <PowerPlantList
+              activePlantName={tooltip?.plant.name ?? null}
+              onHoverPlant={handleHoverFromList}
+              onLeave={() => setTooltip(null)}
+            />
+          </div>
         </div>
       </div>
       <PowerPlantTable activePlantName={tooltip?.plant.name ?? null} />

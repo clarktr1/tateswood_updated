@@ -31,7 +31,7 @@ export default function PowerPlantTable({
       <div className="divide-y divide-brand-purple/10 rounded-2xl bg-white shadow-md ring-1 ring-brand-purple/10 md:hidden">
         {powerPlants.map((plant) => (
           <div key={plant.name} className="px-5 py-4">
-            <p className="font-semibold text-brand-purple">{plant.name}</p>
+            <p className="font-semibold text-foreground">{plant.name}</p>
             <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5 text-sm">
               <dt className="text-foreground/50">Location</dt>
               <dd className="text-foreground">{plant.location}</dd>
@@ -81,7 +81,7 @@ export default function PowerPlantTable({
                   activePlantName === plant.name ? "bg-brand-purple/5" : ""
                 }`}
               >
-                <td className="px-6 py-4 font-semibold text-brand-purple">
+                <td className="px-6 py-4 font-semibold text-foreground">
                   {plant.name}
                 </td>
                 <td className="px-6 py-4 text-foreground">{plant.location}</td>
