@@ -95,8 +95,13 @@ function CloseIcon() {
 
 export default function TeamGrid() {
   const [selected, setSelected] = useState<Member | null>(null);
+  const [loadedImages, setLoadedImages] = useState<Record<string, boolean>>({});
   const triggerRef = useRef<HTMLElement | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+
+  const markLoaded = (src: string) => {
+    setLoadedImages((prev) => (prev[src] ? prev : { ...prev, [src]: true }));
+  };
 
   const openMember = (member: Member, trigger: HTMLElement) => {
     triggerRef.current = trigger;
@@ -147,12 +152,21 @@ export default function TeamGrid() {
             className="group animate-rise-in relative cursor-pointer overflow-hidden bg-white shadow-md ring-1 ring-brand-purple/5 transition-all duration-300 [clip-path:polygon(0_0,100%_0,100%_100%,28px_100%,0_calc(100%-28px))] motion-safe:hover:-translate-y-2 motion-safe:hover:shadow-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange"
           >
             <div className="relative aspect-[3/4] w-full overflow-hidden">
+              <div
+                aria-hidden="true"
+                className={`absolute inset-0 bg-slate-200 motion-safe:animate-pulse ${
+                  loadedImages[member.image] ? "opacity-0" : "opacity-100"
+                } transition-opacity duration-300`}
+              />
               <Image
                 src={member.image}
                 alt={member.full_name}
                 fill
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                className="object-cover object-top transition-transform duration-500 motion-safe:group-hover:scale-105"
+                onLoad={() => markLoaded(member.image)}
+                className={`object-cover object-top transition-all duration-500 motion-safe:group-hover:scale-105 ${
+                  loadedImages[member.image] ? "opacity-100" : "opacity-0"
+                }`}
               />
               <a
                 href={`mailto:${member.email}`}
@@ -200,12 +214,21 @@ export default function TeamGrid() {
             </button>
 
             <div className="relative aspect-[3/4] w-full sm:aspect-auto">
+              <div
+                aria-hidden="true"
+                className={`absolute inset-0 bg-slate-200 motion-safe:animate-pulse ${
+                  loadedImages[selected.image] ? "opacity-0" : "opacity-100"
+                } transition-opacity duration-300`}
+              />
               <Image
                 src={selected.image}
                 alt={selected.full_name}
                 fill
                 sizes="(min-width: 640px) 50vw, 100vw"
-                className="object-cover object-top"
+                onLoad={() => markLoaded(selected.image)}
+                className={`object-cover object-top transition-opacity duration-500 ${
+                  loadedImages[selected.image] ? "opacity-100" : "opacity-0"
+                }`}
               />
             </div>
 
