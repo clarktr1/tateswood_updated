@@ -72,7 +72,7 @@ export default function PowerPlantMarker({
       tabIndex={0}
       role="button"
       aria-label={`${plant.name}, ${plant.location}. ${plant.type}, ${plant.capacity}, ${
-        isCurrent ? "current" : "former"
+        isCurrent ? "current" : "previous"
       } asset.`}
       style={{ cursor: "pointer", outline: "none" }}
     >

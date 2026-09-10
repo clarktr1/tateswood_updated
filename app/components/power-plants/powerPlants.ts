@@ -1,5 +1,5 @@
 export type PowerPlantType = "Gas" | "Wind" | "Renewable";
-export type PowerPlantStatus = "current" | "former";
+export type PowerPlantStatus = "current" | "previous";
 
 export type PowerPlant = {
   name: string;
@@ -54,13 +54,13 @@ export const powerPlants: PowerPlant[] = [
     coordinates: [-97.3964, 27.8006],
   },
 
-  // Former assets
+  // previous assets
   {
     name: "Broad River Energy",
     location: "Gaffney, SC",
     type: "Gas",
     capacity: "850 MW",
-    status: "former",
+    status: "previous",
     coordinates: [-81.6412, 35.0737],
   },
   {
@@ -68,7 +68,7 @@ export const powerPlants: PowerPlant[] = [
     location: "Brandywine, MD",
     type: "Gas",
     capacity: "230 MW",
-    status: "former",
+    status: "previous",
     coordinates: [-76.8508, 38.6923],
   },
   {
@@ -76,7 +76,7 @@ export const powerPlants: PowerPlant[] = [
     location: "Salem, MA",
     type: "Gas",
     capacity: "674 MW",
-    status: "former",
+    status: "previous",
     coordinates: [-70.8967, 42.5195],
   },
   {
@@ -84,7 +84,7 @@ export const powerPlants: PowerPlant[] = [
     location: "Gregory, TX",
     type: "Gas",
     capacity: "400 MW",
-    status: "former",
+    status: "previous",
     coordinates: [-97.2947, 27.9161],
   },
   {
@@ -92,7 +92,7 @@ export const powerPlants: PowerPlant[] = [
     location: "Jackson, MI",
     type: "Gas",
     capacity: "540 MW",
-    status: "former",
+    status: "previous",
     coordinates: [-84.4013, 42.2459],
   },
   {
@@ -100,7 +100,7 @@ export const powerPlants: PowerPlant[] = [
     location: "Kauaʻi, HI",
     type: "Renewable",
     capacity: "7.5 MW",
-    status: "former",
+    status: "previous",
     coordinates: [-159.5261, 22.0964],
   },
   {
@@ -108,7 +108,7 @@ export const powerPlants: PowerPlant[] = [
     location: "Elgin, IL",
     type: "Gas",
     capacity: "375 MW",
-    status: "former",
+    status: "previous",
     coordinates: [-88.2826, 42.0354],
   },
   {
@@ -116,7 +116,7 @@ export const powerPlants: PowerPlant[] = [
     location: "Danville, IL",
     type: "Gas",
     capacity: "188 MW",
-    status: "former",
+    status: "previous",
     coordinates: [-87.63, 40.1245],
   },
   {
@@ -124,7 +124,7 @@ export const powerPlants: PowerPlant[] = [
     location: "Brooksville, FL",
     type: "Renewable",
     capacity: "66 MW",
-    status: "former",
+    status: "previous",
     coordinates: [-82.389, 28.5544],
   },
   {
@@ -132,7 +132,7 @@ export const powerPlants: PowerPlant[] = [
     location: "Texas City, TX",
     type: "Gas",
     capacity: "380 MW",
-    status: "former",
+    status: "previous",
     coordinates: [-94.9027, 29.3838],
   },
   {
@@ -140,7 +140,7 @@ export const powerPlants: PowerPlant[] = [
     location: "Victoria, TX",
     type: "Gas",
     capacity: "290 MW",
-    status: "former",
+    status: "previous",
     coordinates: [-96.9999, 28.8053],
   },
   {
@@ -148,7 +148,7 @@ export const powerPlants: PowerPlant[] = [
     location: "Friendswood, TX",
     type: "Gas",
     capacity: "120 MW",
-    status: "former",
+    status: "previous",
     coordinates: [-95.201, 29.5294],
   },
 ];

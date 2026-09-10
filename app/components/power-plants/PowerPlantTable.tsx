@@ -13,7 +13,7 @@ function StatusBadge({ status }: { status: PowerPlant["status"] }) {
           : "bg-slate-200 text-slate-600"
       }`}
     >
-      {isCurrent ? "Current" : "Former"}
+      {isCurrent ? "Current" : "previous"}
     </span>
   );
 }

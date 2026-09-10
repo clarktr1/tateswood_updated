@@ -20,7 +20,7 @@ export default function Projects() {
               Projects
             </h1>
             <p className="mt-4 max-w-xl text-lg leading-8 text-white/90">
-              A national portfolio of current and former independent power
+              A national portfolio of current and previous independent power
               plant assets under Tateswood management.
             </p>
           </div>

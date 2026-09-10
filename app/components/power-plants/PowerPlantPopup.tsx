@@ -22,7 +22,7 @@ export default function PowerPlantPopup({ plant }: { plant: PowerPlant }) {
             : "bg-slate-200 text-slate-600"
         }`}
       >
-        {isCurrent ? "Current" : "Former"}
+        {isCurrent ? "Current" : "Previous"}
       </span>
     </div>
   );

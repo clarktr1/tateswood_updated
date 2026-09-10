@@ -39,7 +39,7 @@ export default function PowerPlantLegend() {
               aria-hidden="true"
               className="h-2.5 w-2.5 rounded-full border-2 border-slate-400 bg-white"
             />
-            Former
+            Previous
           </span>
         </div>
       </div>
