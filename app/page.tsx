@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import heroImage from "@/public/assets/header2.png";
 
 const clientLogos = [
   { src: "/assets/client1.jpg", alt: "Client logo 1" },
@@ -45,10 +46,11 @@ export default function Home() {
       {/* Hero */}
       <section className="relative flex min-h-[60vh] items-center overflow-hidden md:min-h-[64vh]">
         <Image
-          src="/assets/header2.png"
+          src={heroImage}
           alt=""
           fill
           priority
+          placeholder="blur"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-purple/90 via-brand-purple/70 to-accent-purple/50" />
